@@ -128,6 +128,7 @@ int main(void) {
 ```C++
 #include <iostream>
 #include <vector>
+#include <algorithm>
 
 using namespace std;
 
@@ -135,7 +136,7 @@ int main(void) {
     vector<int> v = { -2, -2, -1, -1, 0, 0, 0, 1, 1 };
 	
     cout << lower_bound(v.begin(), v.end(), 0) - v.begin() << '\n';  // 4
-	cout << upper_bound(v.begin(), v.end(), 0) - v.begin() << '\n';  // 7
+    cout << upper_bound(v.begin(), v.end(), 0) - v.begin() << '\n';  // 7
     
     return 0;
 }
