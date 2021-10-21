@@ -51,11 +51,16 @@ void copy_arr() {
 	}
 }
 
-void BFS(int r, int c) {
+void BFS(int c) {
 	queue<pair<int, int>> q;
 
-	q.push(make_pair(r, c));
-
+	for (int r = 0; r < H; r++) {
+		if (brick_c[r][c]) {
+			q.push(make_pair(r, c));
+			break;
+		}
+	}
+	
 	while (!q.empty()) {
 		int r, c, cnt;
 
@@ -130,14 +135,7 @@ void solve() {
 	for (int i = 0; i < start.size(); i++) {
 		copy_arr();
 		for (int j = 0; j < N; j++) {
-			int r;
-			for (r = 0; r < H; r++) {
-				if (brick_c[r][start[i][j]]) {
-					BFS(r, start[i][j]);
-					break;
-				}
-			}
-			
+			BFS(start[i][j]);
 			sort_arr();
 		}
 		count_arr();
